@@ -14,9 +14,19 @@ function cb(error,response,html)
     {
         console.log(error);
     }
-    else if
+    else
     {
         const dom=new JSDOM(html);
+
         const document=dom.window.document;
+
+        let allScorecardtags=document.querySelectorAll('a[data-hover="Scorecard"]');
+
+        for(let i=0;i<allScorecardtags.length;i++)
+        {
+            let link=allScorecardtags[i].href;
+            let completeLink="https://www.espncricinfo.com"+link;
+            console.log(completeLink);
+        }
     }
 }
